@@ -1,0 +1,47 @@
+PROGRAM Sistem_Penilaian_Mahasiswa
+
+DEKLARASI:
+    jumlah_mhs : INTEGER
+    i : INTEGER
+    nama : ARRAY OF STRING
+    nilai : ARRAY OF INTEGER
+    indeks : ARRAY OF CHARACTER
+
+ALGORITMA:
+    TULIS "Masukkan jumlah mahasiswa: "
+    BACA jumlah_mhs
+
+    // Tahap Input Data
+    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
+        TULIS "Nama mahasiswa ke-", i + 1, ": "
+        BACA nama[i]
+        
+        TULIS "Nilai: "
+        BACA nilai[i]
+
+        // Penentuan Indeks Nilai
+        IF nilai[i] >= 85 THEN
+            indeks[i] <- 'A'
+        ELSE IF nilai[i] >= 70 THEN
+            indeks[i] <- 'B'
+        ELSE IF nilai[i] >= 55 THEN
+            indeks[i] <- 'C'
+        ELSE IF nilai[i] >= 40 THEN
+            indeks[i] <- 'D'
+        ELSE
+            indeks[i] <- 'E'
+        ENDIF
+    ENDFOR
+
+    // Tahap Menampilkan Output (Tabel)
+    TULIS "===================================="
+    TULIS "No   Nama           Nilai   Indeks"
+    TULIS "------------------------------------"
+
+    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
+        TULIS (i + 1), nama[i], nilai[i], indeks[i]
+    ENDFOR
+    
+    TULIS "===================================="
+
+END PROGRAM
