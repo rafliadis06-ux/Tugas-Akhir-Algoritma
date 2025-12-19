@@ -1,47 +1,38 @@
-PROGRAM Sistem_Penilaian_Mahasiswa
+ALGORITMA Penilaian_Mahasiswa
 
 DEKLARASI:
-    jumlah_mhs : INTEGER
-    i : INTEGER
-    nama : ARRAY OF STRING
-    nilai : ARRAY OF INTEGER
-    indeks : ARRAY OF CHARACTER
+    namaMahasiswa : String
+    jumlahJuri, i : Integer
+    nilaiInput, totalNilai, rataRata : Real
 
-ALGORITMA:
-    TULIS "Masukkan jumlah mahasiswa: "
-    BACA jumlah_mhs
-
-    // Tahap Input Data
-    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
-        TULIS "Nama mahasiswa ke-", i + 1, ": "
-        BACA nama[i]
-        
-        TULIS "Nilai: "
-        BACA nilai[i]
-
-        // Penentuan Indeks Nilai
-        IF nilai[i] >= 85 THEN
-            indeks[i] <- 'A'
-        ELSE IF nilai[i] >= 70 THEN
-            indeks[i] <- 'B'
-        ELSE IF nilai[i] >= 55 THEN
-            indeks[i] <- 'C'
-        ELSE IF nilai[i] >= 40 THEN
-            indeks[i] <- 'D'
-        ELSE
-            indeks[i] <- 'E'
-        ENDIF
-    ENDFOR
-
-    // Tahap Menampilkan Output (Tabel)
-    TULIS "===================================="
-    TULIS "No   Nama           Nilai   Indeks"
-    TULIS "------------------------------------"
-
-    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
-        TULIS (i + 1), nama[i], nilai[i], indeks[i]
+DESKRIPSI:
+    PRINT "Masukkan Nama Mahasiswa: "
+    READ namaMahasiswa
+    
+    PRINT "Masukkan Jumlah Juri: "
+    READ jumlahJuri
+    
+    // Inisialisasi total nilai
+    totalNilai <- 0
+    
+    // Perulangan untuk mengambil nilai dari setiap juri
+    FOR i FROM 1 TO jumlahJuri DO
+        PRINT "Masukkan nilai dari juri ke-", i
+        READ nilaiInput
+        totalNilai <- totalNilai + nilaiInput
     ENDFOR
     
-    TULIS "===================================="
-
-END PROGRAM
+    // Menghitung rata-rata
+    rataRata <- totalNilai / jumlahJuri
+    
+    // Menampilkan hasil
+    PRINT "Nama Mahasiswa: ", namaMahasiswa
+    PRINT "Rata-rata Nilai: ", rataRata
+    
+    // Menentukan kelulusan
+    IF rataRata >= 75 THEN
+        PRINT "Status: LULUS"
+    ELSE
+        PRINT "Status: TIDAK LULUS"
+    ENDIF
+END
