@@ -1,38 +1,21 @@
-ALGORITMA Penilaian_Mahasiswa
-
-DEKLARASI:
-    namaMahasiswa : String
-    jumlahJuri, i : Integer
-    nilaiInput, totalNilai, rataRata : Real
-
-DESKRIPSI:
-    PRINT "Masukkan Nama Mahasiswa: "
-    READ namaMahasiswa
-    
-    PRINT "Masukkan Jumlah Juri: "
-    READ jumlahJuri
-    
-    // Inisialisasi total nilai
-    totalNilai <- 0
-    
-    // Perulangan untuk mengambil nilai dari setiap juri
-    FOR i FROM 1 TO jumlahJuri DO
-        PRINT "Masukkan nilai dari juri ke-", i
-        READ nilaiInput
-        totalNilai <- totalNilai + nilaiInput
-    ENDFOR
-    
-    // Menghitung rata-rata
-    rataRata <- totalNilai / jumlahJuri
-    
-    // Menampilkan hasil
-    PRINT "Nama Mahasiswa: ", namaMahasiswa
-    PRINT "Rata-rata Nilai: ", rataRata
-    
-    // Menentukan kelulusan
-    IF rataRata >= 75 THEN
-        PRINT "Status: LULUS"
-    ELSE
-        PRINT "Status: TIDAK LULUS"
-    ENDIF
+//START
+    DEKLARASI nama, jumlahJuri, totalNilai, nilai, rataRata
+    totalNilai ← 0
+    TAMPILKAN "Nama Mahasiswa: "
+    INPUT nama
+    TAMPILKAN "Jumlah Juri: "
+    INPUT jumlahJuri
+//UNTUK i = 1 SAMPAI jumlahJuri:
+    TAMPILKAN "Nilai Juri", i, ": "
+    INPUT nilai
+    totalNilai ← totalNilai + nilai
+//AKHIR UNTUK
+    rataRata ← totalNilai / jumlahJuri
+    TAMPILKAN "Mahasiswa: ", nama
+    TAMPILKAN "Rata-rata: ", rataRata
+//JIKA rataRata ≥ 75:
+    TAMPILKAN "Status: LULUS"
+//JIKA TIDAK:
+    TAMPILKAN "Status: TIDAK LULUS";
+//AKHIR JIKA
 END
