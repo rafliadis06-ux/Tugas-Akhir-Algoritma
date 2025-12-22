@@ -42,7 +42,5 @@ int main() {
              << setw(8)  << nilai[i] 
              << indeks[i] << endl;
     }
-    cout << "====================================\n";
-
     return 0;
 }
