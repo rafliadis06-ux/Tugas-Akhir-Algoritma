@@ -16,6 +16,6 @@
 //JIKA rataRata ≥ 75:
     TAMPILKAN "Status: LULUS"
 //JIKA TIDAK:
-    TAMPILKAN "Status: TIDAK LULUS";
+    TAMPILKAN "Status: TIDAK LULUS"
 //AKHIR JIKA
 END
