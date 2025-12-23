@@ -1,28 +1,22 @@
 PROGRAM DataMahasiswa
-
 DEKLARASI
-    n, i : integer
-    nama[n], indeks : string
-    nilai[n] : integer
-
+  n, i : integer
+  nama : array of string
+  nilai : array of integer
 ALGORITMA
-    INPUT n
-    
-    // Input data
-    FOR i = 0 TO n-1
-        INPUT nama[i], nilai[i]
-    ENDFOR
-    
-    // Output hasil
-    OUTPUT "=== HASIL ==="
-    FOR i = 0 TO n-1
-        IF nilai[i] >= 85 THEN indeks = 'A'
-        ELSE IF nilai[i] >= 70 THEN indeks = 'B'
-        ELSE IF nilai[i] >= 55 THEN indeks = 'C'
-        ELSE IF nilai[i] >= 40 THEN indeks = 'D'
-        ELSE indeks = 'E'
-        
-        OUTPUT nama[i], nilai[i], indeks
-    ENDFOR
-
+  INPUT n
+  WHILE n <= 0 DO INPUT n ENDWHILE
+  FOR i = 0 TO n-1 DO
+    INPUT nama[i]
+    REPEAT INPUT nilai[i] UNTIL 0 <= nilai[i] <= 100
+  ENDFOR
+  PRINT "=== HASIL ==="
+  FOR i = 0 TO n-1 DO
+    IF nilai[i] >= 85 THEN idx='A'
+    ELSE IF nilai[i] >= 70 THEN idx='B'
+    ELSE IF nilai[i] >= 55 THEN idx='C'
+    ELSE IF nilai[i] >= 40 THEN idx='D'
+    ELSE idx='E' ENDIF
+    PRINT (i+1), nama[i], nilai[i], idx
+  ENDFOR
 END
