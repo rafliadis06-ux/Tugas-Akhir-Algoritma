@@ -1,47 +1,44 @@
-PROGRAM Sistem_Penilaian_Mahasiswa
+PROGRAM Data Mahasiswa
 
-DEKLARASI:
-    jumlah_mhs : INTEGER
-    i : INTEGER
-    nama : ARRAY OF STRING
-    nilai : ARRAY OF INTEGER
-    indeks : ARRAY OF CHARACTER
+DEKLARASI
+    n : integer
+    nama : array of string
+    nilai : array of integer
+    i : integer
+    indeks : character
 
-ALGORITMA:
-    TULIS "Masukkan jumlah mahasiswa: "
-    BACA jumlah_mhs
-
-    // Tahap Input Data
-    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
-        TULIS "Nama mahasiswa ke-", i + 1, ": "
-        BACA nama[i]
-        
-        TULIS "Nilai: "
-        BACA nilai[i]
-
-        // Penentuan Indeks Nilai
-        IF nilai[i] >= 85 THEN
-            indeks[i] <- 'A'
-        ELSE IF nilai[i] >= 70 THEN
-            indeks[i] <- 'B'
-        ELSE IF nilai[i] >= 55 THEN
-            indeks[i] <- 'C'
-        ELSE IF nilai[i] >= 40 THEN
-            indeks[i] <- 'D'
-        ELSE
-            indeks[i] <- 'E'
-        ENDIF
-    ENDFOR
-
-    // Tahap Menampilkan Output (Tabel)
-    TULIS "===================================="
-    TULIS "No   Nama           Nilai   Indeks"
-    TULIS "------------------------------------"
-
-    FOR i dari 0 SAMPAI (jumlah_mhs - 1) DO
-        TULIS (i + 1), nama[i], nilai[i], indeks[i]
+ALGORITMA
+    // Input jumlah mahasiswa
+    OUTPUT "Jumlah mahasiswa: "
+    INPUT n
+    
+    // Input data mahasiswa
+    FOR i ← 0 TO n-1 DO
+        OUTPUT "Mahasiswa ", i+1
+        OUTPUT "Nama: "
+        INPUT nama[i]
+        OUTPUT "Nilai: "
+        INPUT nilai[i]
     ENDFOR
     
-    TULIS "===================================="
+    // Output hasil
+    OUTPUT "=== HASIL ==="
+    FOR i ← 0 TO n-1 DO
+        // Tentukan indeks
+        IF nilai[i] ≥ 85 THEN
+            indeks ← 'A'
+        ELSE IF nilai[i] ≥ 70 THEN
+            indeks ← 'B'
+        ELSE IF nilai[i] ≥ 55 THEN
+            indeks ← 'C'
+        ELSE IF nilai[i] ≥ 40 THEN
+            indeks ← 'D'
+        ELSE
+            indeks ← 'E'
+        ENDIF
+        
+        // Tampilkan data
+        OUTPUT i+1, ". ", nama[i], " - Nilai: ", nilai[i], " (Indeks ", indeks, ")"
+    ENDFOR
 
 END PROGRAM
