@@ -24,7 +24,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         char indeks = nilai[i] >= 85 ? 'A' : nilai[i] >= 70 ? 'B' : 
                       nilai[i] >= 55 ? 'C' : nilai[i] >= 40 ? 'D' : 'E';
-        cout << i + 1 << ". " << nama[i] << " - Nilai: " 
+        cout << i + 1 << ". " << nama[i] << " : Nilai: " 
              << nilai[i] << " (Indeks " << indeks << ")\n";
     }
     
