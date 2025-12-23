@@ -1,44 +1,28 @@
-PROGRAM Data Mahasiswa
+PROGRAM DataMahasiswa
 
 DEKLARASI
-    n : integer
-    nama : array of string
-    nilai : array of integer
-    i : integer
-    indeks : character
+    n, i : integer
+    nama[n], indeks : string
+    nilai[n] : integer
 
 ALGORITMA
-    // Input jumlah mahasiswa
-    OUTPUT "Jumlah mahasiswa: "
     INPUT n
     
-    // Input data mahasiswa
-    FOR i ← 0 TO n-1 DO
-        OUTPUT "Mahasiswa ", i+1
-        OUTPUT "Nama: "
-        INPUT nama[i]
-        OUTPUT "Nilai: "
-        INPUT nilai[i]
+    // Input data
+    FOR i = 0 TO n-1
+        INPUT nama[i], nilai[i]
     ENDFOR
     
     // Output hasil
     OUTPUT "=== HASIL ==="
-    FOR i ← 0 TO n-1 DO
-        // Tentukan indeks
-        IF nilai[i] ≥ 85 THEN
-            indeks ← 'A'
-        ELSE IF nilai[i] ≥ 70 THEN
-            indeks ← 'B'
-        ELSE IF nilai[i] ≥ 55 THEN
-            indeks ← 'C'
-        ELSE IF nilai[i] ≥ 40 THEN
-            indeks ← 'D'
-        ELSE
-            indeks ← 'E'
-        ENDIF
+    FOR i = 0 TO n-1
+        IF nilai[i] >= 85 THEN indeks = 'A'
+        ELSE IF nilai[i] >= 70 THEN indeks = 'B'
+        ELSE IF nilai[i] >= 55 THEN indeks = 'C'
+        ELSE IF nilai[i] >= 40 THEN indeks = 'D'
+        ELSE indeks = 'E'
         
-        // Tampilkan data
-        OUTPUT i+1, ". ", nama[i], " - Nilai: ", nilai[i], " (Indeks ", indeks, ")"
+        OUTPUT nama[i], nilai[i], indeks
     ENDFOR
 
-END PROGRAM
+END
