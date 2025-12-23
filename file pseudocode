@@ -1,21 +1,22 @@
-//START
-    DEKLARASI nama, jumlahJuri, totalNilai, nilai, rataRata
-    totalNilai ← 0
-    TAMPILKAN "Nama Mahasiswa: "
-    INPUT nama
-    TAMPILKAN "Jumlah Juri: "
-    INPUT jumlahJuri
-//UNTUK i = 1 SAMPAI jumlahJuri:
-    TAMPILKAN "Nilai Juri", i, ": "
-    INPUT nilai
-    totalNilai ← totalNilai + nilai
-//AKHIR UNTUK
-    rataRata ← totalNilai / jumlahJuri
-    TAMPILKAN "Mahasiswa: ", nama
-    TAMPILKAN "Rata-rata: ", rataRata
-//JIKA rataRata ≥ 75:
-    TAMPILKAN "Status: LULUS"
-//JIKA TIDAK:
-    TAMPILKAN "Status: TIDAK LULUS"
-//AKHIR JIKA
+PROGRAM Voting
+DEKLARASI
+  nama : string
+  juri, i : integer
+  nilai : array of real
+  total, rata : real
+  status : string
+ALGORITMA
+  INPUT nama
+  INPUT juri
+  WHILE juri <= 0 DO INPUT juri ENDWHILE
+  total <- 0
+  FOR i = 1 TO juri DO
+    REPEAT INPUT nilai[i] UNTIL 0 <= nilai[i] <= 100
+    total <- total + nilai[i]
+  ENDFOR
+  rata <- total / juri
+  IF rata >= 85 THEN status <- "SANGAT BAIK"
+  ELSE IF rata >= 75 THEN status <- "LULUS"
+  ELSE status <- "TIDAK LULUS" ENDIF
+  OUTPUT nama, rata, status
 END
