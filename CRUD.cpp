@@ -23,8 +23,13 @@ int main() {
     // Output
     cout << "\n=== HASIL ===\n";
     for (int i = 0; i < n; i++) {
-        char indeks = nilai[i] >= 85 ? 'A' : nilai[i] >= 70 ? 'B' : 
-                      nilai[i] >= 55 ? 'C' : nilai[i] >= 40 ? 'D' : 'E';
+        char indeks;
+        if (nilai[i] >= 85) indeks = 'A';
+        else if (nilai[i] >= 70) indeks = 'B';
+        else if (nilai[i] >= 55) indeks = 'C';
+        else if (nilai[i] >= 40) indeks = 'D';
+        else indeks = 'E';
+        
         cout << i + 1 << ". " << nama[i] << " - Nilai: " 
              << nilai[i] << " (Indeks " << indeks << ")\n";
     }
