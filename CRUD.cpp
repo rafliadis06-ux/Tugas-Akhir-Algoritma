@@ -1,29 +1,35 @@
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
 
 int main() {
     int n;
     cout << "Jumlah mahasiswa: "; 
     cin >> n;
+    cin.ignore();
 
-    string nama[n];
-    int nilai[n];
+    vector<string> nama(n);
+    vector<int> nilai(n);
 
-    // Input & tentukan indeks langsung
+    // Input
     for (int i = 0; i < n; i++) {
         cout << "\nMahasiswa " << i + 1 << "\nNama: ";
-        cin.ignore();
         getline(cin, nama[i]);
         cout << "Nilai: "; 
         cin >> nilai[i];
+        cin.ignore();
     }
 
     // Output
     cout << "\n=== HASIL ===\n";
     for (int i = 0; i < n; i++) {
-        char indeks = nilai[i] >= 85 ? 'A' : nilai[i] >= 70 ? 'B' : 
-                      nilai[i] >= 55 ? 'C' : nilai[i] >= 40 ? 'D' : 'E';
+        char indeks;
+        if (nilai[i] >= 85) indeks = 'A';
+        else if (nilai[i] >= 70) indeks = 'B';
+        else if (nilai[i] >= 55) indeks = 'C';
+        else if (nilai[i] >= 40) indeks = 'D';
+        else indeks = 'E';
+        
         cout << i + 1 << ". " << nama[i] << " - Nilai: " 
              << nilai[i] << " (Indeks " << indeks << ")\n";
     }
