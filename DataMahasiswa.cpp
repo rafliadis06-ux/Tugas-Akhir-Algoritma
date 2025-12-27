@@ -13,7 +13,7 @@ int main(){
         cout<<"Nilai: "; cin>>nilai[i]; cin.ignore();
     }
 
-    cout<<"\n=== HASIL ===\n";
+    cout<<"\n============= HASIL ============\n";
     cout<<left<<setw(4)<<"No"<<setw(25)<<"Nama"<<setw(6)<<"Nilai"<<"Indeks\n";
     cout<<string(40,'-')<<"\n";
     for(int i=0;i<n;++i){
